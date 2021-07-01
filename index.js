@@ -9,3 +9,13 @@ function openNav() {
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
+
+   var $docVar = $(document),
+            $winVar = $(window),
+            $svgVar = $('svg').drawsvg(),
+            max = $docVar.height() - $winVar.height();
+  
+        $winVar.on('scroll', function() {
+            var p = $winVar.scrollTop() / max;
+            $svgVar.drawsvg('progress', p);
+        });
